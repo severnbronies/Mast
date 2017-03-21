@@ -1,0 +1,27 @@
+{
+  "name": "mast",
+  "version": "1.0.0",
+  "description": "Broadcasting ponies to the people. Keep circulating the tapes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/severnbronies/Mast.git"
+  },
+  "author": "SevernBronies",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/severnbronies/Mast/issues"
+  },
+  "homepage": "https://github.com/severnbronies/Mast#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
+},
+  "jshintConfig": {
+    "esversion": 6,
+    "node": true
+  }
+}
