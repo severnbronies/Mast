@@ -5,7 +5,7 @@ const plumber = require('gulp-plumber');
 const sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('default', ['watch']);
-gulp.task('lint', ['sass:lint', 'js:lint'])
+gulp.task('lint', ['sass:lint', 'js:lint']);
 gulp.task('production', ['sass', 'js', 'js:vendor', 'images', 'fonts']);
 gulp.task('force', ['production']);
 
@@ -65,7 +65,7 @@ gulp.task('js', ['js:vendor'], () => {
 		}))
 		.pipe(concat(`${folder}.js`))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('./dst/js'))
+		.pipe(gulp.dest('./dst/js'));
 	});
 	merge(tasks);
 });
@@ -80,7 +80,7 @@ gulp.task('js:vendor', () => {
 		})
 		.pipe(plumber())
 		.pipe(concat(`${folder}.js`))
-		.pipe(gulp.dest('./dst/js'))
+		.pipe(gulp.dest('./dst/js'));
 	});
 	merge(tasks);
 });
