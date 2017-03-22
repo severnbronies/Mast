@@ -6,7 +6,7 @@ const sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('default', ['watch']);
 gulp.task('lint', ['sass:lint', 'js:lint']);
-gulp.task('production', ['sass', 'js', 'js:vendor', 'images', 'fonts']);
+gulp.task('production', ['sass', 'js', 'js:vendor', 'images', 'fonts', 'html']);
 gulp.task('force', ['production']);
 
 gulp.task('watch', () => {
@@ -15,6 +15,7 @@ gulp.task('watch', () => {
 	gulp.watch('./src/js/+(preload|vendor)/{,*/}*.js', ['js:vendor']);
 	gulp.watch('./src/images/{,*/}*', ['images']);
 	gulp.watch('./src/type/{,*/}*', ['fonts']);
+	gulp.watch('./src/{,*/}*.html', ['html']);
 });
 
 /*
@@ -120,4 +121,13 @@ gulp.task('images', () => {
 gulp.task('fonts', () => {
 	gulp.src('./src/type/{,*/}*')
 	.pipe(gulp.dest('./dst/type'));
+});
+
+/**
+ * Html teleportation
+ */
+
+gulp.task('html', () => {
+	gulp.src('./src/{,*/}*.html')
+	.pipe(gulp.dest('./dst'));
 });
