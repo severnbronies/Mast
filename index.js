@@ -3,7 +3,7 @@ var express     = require("express");
 var app         = express();
 var http        = require("http").createServer(app);
 var io          = require("socket.io")(http);
-var MessageFeed = require('./lib/message_feed');
+var MessageFeed = require('./server/message_feed');
 
 app.use(express.static('resource'));
 app.use(express.static('dst'));
