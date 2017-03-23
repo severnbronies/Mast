@@ -1,6 +1,6 @@
 "use strict";
 
-var ApplicationBase = require('./application_base');
+var ApplicationBase = require('./base');
 
 class MessageFeed extends ApplicationBase {
     constructor(socketio) {
