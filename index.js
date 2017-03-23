@@ -15,9 +15,12 @@ var messageFeed = new MessageFeed(streamNs);
 var viewer = new Viewer(streamNs);
 
 http.listen(settings.port, function() {
+    setTimeout(function() {
+        viewer.setUrl('https://www.youtube.com/embed/8VIllAilTnE');
+    }, 5000);
     setInterval(function() {
         messageFeed.newMessage({
-            avatar: "",
+            avatar: "http://0.gravatar.com/avatar/50663963c0a91eb97788148b7485681e",
             username: "SamP20",
             timestamp: new Date().toISOString(),
             message: "Hello world!"
