@@ -29,6 +29,7 @@ class UI {
 
     createAppUIs() {
         this.apps.getApp('messagefeed').create($('#tweetstream'));
+        this.apps.getApp('viewer').create($('#viewer'));
     }
 
     resolution() {
