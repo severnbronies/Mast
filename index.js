@@ -3,7 +3,8 @@ var express     = require("express");
 var app         = express();
 var http        = require("http").createServer(app);
 var io          = require("socket.io")(http);
-var MessageFeed = require('./server/message_feed');
+var MessageFeed = require('./server/app/messagefeed');
+var Viewer = require('./server/app/viewer');
 
 app.use(express.static('resource'));
 app.use(express.static('dst'));
@@ -11,6 +12,7 @@ app.use(express.static('dst'));
 var streamNs = io.of('stream');
 
 var messageFeed = new MessageFeed(streamNs);
+var viewer = new Viewer(streamNs);
 
 http.listen(settings.port, function() {
     setInterval(function() {
