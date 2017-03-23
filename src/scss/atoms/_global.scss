@@ -1,0 +1,17 @@
+body {
+	font-size: $base-font-size;
+	font-family: $base-font-stack;
+	line-height: 1.4;
+	color: #fff;
+	-webkit-font-smoothing: antialiased;
+	overflow: hidden;
+	background-image: url('../images/ee.png');
+	background-size: auto 60vh;
+	background-position: top left;
+	background-repeat: no-repeat;
+	@each $locale, $color in $palette-locales {
+		&[data-theme="#{$locale}"] {
+			background-color: palette($locale, base);
+		}
+	}
+}

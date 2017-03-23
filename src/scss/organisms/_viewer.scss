@@ -1,0 +1,33 @@
+.viewer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	@each $locale, $color in $palette-locales {
+		[data-theme="#{$locale}"] & {
+			background-color: palette($locale, darker);
+		}
+	}
+	.widescreen & {
+		right: 320px;
+	}
+	.viewer-hidden & {
+		.viewer__size {
+			padding-bottom: 0;
+		}
+	}
+	&__size {
+		width: 100%;
+		padding-bottom: 56.25%;
+		transition: padding-bottom .5s $easing;
+	}
+	&__iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+	}
+}

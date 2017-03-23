@@ -1,0 +1,71 @@
+.schedule {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	@each $locale, $color in $palette-locales {
+		[data-theme="#{$locale}"] & {
+			background-color: palette($locale, darker);
+		}
+	}
+	.widescreen & {
+		width: 320px;
+		top: 0;
+		left: auto;
+		bottom: auto;
+	}
+	&__title {
+		display: inline-block;
+		width: 25%;
+		padding: 10px 10px;
+		font-family: $alt-font-stack;
+		font-weight: bold;
+		text-align: right;
+		@each $locale, $color in $palette-locales {
+			[data-theme="#{$locale}"] & {
+				background-color: palette($locale, darkest);
+			}
+		}
+		.widescreen & {
+			width: 100%;
+			text-align: left;
+		}
+	}
+	&__list {
+		display: inline-block;
+		padding: 10px 10px;
+		list-style: none;
+		.widescreen & {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	&__item {
+		transition: height .5s;
+		.widescreen & {
+			flex: 1 1 1px;
+		}
+		&--hidden {
+			height: 0;
+			overflow: hidden;
+		}
+	}
+	&__time {
+		font-weight: bold;
+		&::after {
+			content: " \00B7";
+			.widescreen & {
+				content: none;
+			}
+		}
+	}
+	&__label {
+		.widescreen & {
+			display: block;
+			font-size: 3vw;
+			line-height: 1.1;
+			font-weight: 300;
+		}
+	}
+}
