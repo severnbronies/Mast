@@ -43,5 +43,3 @@ class UI {
         }
     }
 }
-
-apps.add(new UI(apps));

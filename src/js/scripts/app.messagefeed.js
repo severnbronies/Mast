@@ -63,5 +63,3 @@ class MessageFeed {
         }
     }
 }
-
-apps.add(new MessageFeed());

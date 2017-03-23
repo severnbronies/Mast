@@ -16,4 +16,10 @@ class AppManager {
     }
 }
 
-var apps = new AppManager(io('/stream'));
+$(() => {
+    var apps = new AppManager(io('/stream'));
+    apps.add(new MessageFeed(10));
+    apps.add(new Schedule(10));
+    apps.add(new Viewer());
+    apps.add(new UI(apps));
+});
