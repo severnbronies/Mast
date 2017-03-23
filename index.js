@@ -13,9 +13,12 @@ var streamNs = io.of('stream');
 var messageFeed = new MessageFeed(streamNs);
 
 http.listen(settings.port, function() {
-    var counter = 0;
     setInterval(function() {
-        messageFeed.newMessage("Message "+counter);
-        counter += 1;
-    }, 1000);
+        messageFeed.newMessage({
+            avatar: "",
+            username: "SamP20",
+            timestamp: new Date().toISOString(),
+            message: "Hello world!"
+        });
+    }, 5000);
 });
