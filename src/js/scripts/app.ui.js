@@ -22,8 +22,8 @@ class UI {
             this.timeAgoClock();
         }).on('load resize', () => {
             this.resolution();
-            //this.positionTweetstream();
-            //this.positionSchedule();
+            this.positionMessageFeed();
+            this.positionSchedule();
         });
     }
 
@@ -42,6 +42,27 @@ class UI {
             $('body').removeClass('widescreen');
             this.widescreen = false;
         }
+    }
+
+    positionMessageFeed() {
+        let positionBottom = 0,
+            elementHeight = $(window).innerHeight() - $('.viewer').outerHeight();
+        if(!this.widescreen) {
+            positionBottom = $('.schedule').outerHeight();
+            elementHeight = $(window).innerHeight() - $('.viewer').outerHeight() - positionBottom;
+        }
+        $('.tweetstream').css({ 'height': elementHeight, 'bottom': positionBottom });
+    }
+
+    positionSchedule() {
+        let elementHeight = '';
+        let listHeight = '';
+        if(this.widescreen) {
+            elementHeight = $(window).innerHeight() - $('.tweetstream').outerHeight();
+            listHeight = elementHeight - $('.schedule__title').outerHeight();
+        }
+        $('.schedule').css({ 'height': elementHeight });
+        $('.schedule__list').css({ 'height': listHeight });
     }
 
     timeAgoClock() {
