@@ -18,7 +18,8 @@
   "homepage": "https://github.com/severnbronies/Mast#readme",
   "dependencies": {
     "express": "^4.15.2",
-    "socket.io": "^1.7.3"
+    "socket.io": "^1.7.3",
+    "twitter": "^1.7.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.13.2",
