@@ -19,7 +19,7 @@ class UI {
     bindEvents() {
         $(window).on('load', () => {
             this.createAppUIs();
-            //this.timeAgoClock();
+            this.timeAgoClock();
         }).on('load resize', () => {
             this.resolution();
             //this.positionTweetstream();
@@ -42,5 +42,31 @@ class UI {
             $('body').removeClass('widescreen');
             this.widescreen = false;
         }
+    }
+
+    timeAgoClock() {
+        setInterval(() => {
+            $.timeago.settings.allowFuture = true;
+            $.timeago.settings.strings = {
+                prefixAgo: null,
+                prefixFromNow: null,
+                suffixAgo: "",
+                suffixFromNow: "",
+                seconds: "1m",
+                minute: "1m",
+                minutes: "%dm",
+                hour: "1h",
+                hours: "%dh",
+                day: "1d",
+                days: "%dd",
+                month: "1mo",
+                months: "%dmo",
+                year: "1yr",
+                years: "%dyr",
+                wordSeparator: " ",
+                numbers: []
+            };
+            $('time[datetime]').timeago();
+        }, 250);
     }
 }

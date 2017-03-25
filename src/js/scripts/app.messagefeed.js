@@ -29,5 +29,6 @@ class MessageFeed {
             }
             break;
         }
+        $('time[datetime]').timeago();
     }
 }
