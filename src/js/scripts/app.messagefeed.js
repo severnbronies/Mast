@@ -1,19 +1,12 @@
 class MessageFeed {
-    constructor(maxlength) {
+    constructor(container, maxlength) {
         this.messages = new ListView('tmpl/tweet.html');
+        this.messages.setContainer(container);
         this.maxlength = maxlength;
     }
 
     getName() {
         return 'messagefeed';
-    }
-
-    create(container) {
-        this.messages.setContainer(container);
-    }
-
-    destroy() {
-        this.messages.clearContainer();
     }
 
     onData(command, data) {

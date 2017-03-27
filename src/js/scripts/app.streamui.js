@@ -1,4 +1,4 @@
-class UI {
+class StreamUI {
     constructor(appManager) {
         this.apps = appManager;
         this.widescreen = false;
@@ -18,18 +18,12 @@ class UI {
 
     bindEvents() {
         $(window).on('load', () => {
-            this.createAppUIs();
             this.timeAgoClock();
         }).on('load resize', () => {
             this.resolution();
             this.positionMessageFeed();
             this.positionSchedule();
         });
-    }
-
-    createAppUIs() {
-        this.apps.getApp('messagefeed').create($('#tweetstream'));
-        this.apps.getApp('viewer').create($('#viewer'));
     }
 
     resolution() {
