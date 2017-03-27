@@ -3,14 +3,14 @@ var Twitter = require("twitter");
 class TwitterFront {
     constructor(settings, messageFeed) {
         this.twitter = new Twitter({
-            consumer_key: settings.twitterConsumerKey,
-            consumer_secret: settings.twitterConsumerSecret,
-            access_token_key: settings.twitterAccessKey,
-            access_token_secret: settings.twitterAccessSecret
+            consumer_key: settings.twitter.consumerKey,
+            consumer_secret: settings.twitter.consumerSecret,
+            access_token_key: settings.twitter.accessKey,
+            access_token_secret: settings.twitter.accessSecret
         });
-        this.twitterSearchArchive = settings.twitterSearchArchive;
-        this.twitterSearchLive = settings.twitterSearchLive;
-        this.twitterId = settings.twitterId;
+        this.twitterSearchArchive = settings.twitter.searchArchive;
+        this.twitterSearchLive = settings.twitter.searchLive;
+        this.twitterId = settings.twitter.id;
         this.messageFeed = messageFeed;
     }
 
