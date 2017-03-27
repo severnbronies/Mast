@@ -1,3 +1,5 @@
+var session = require('express-session');
+var MemoryStore = require('session-memory-store')(session);
 var expressNunjucks = require('express-nunjucks');
 
 class WebFront {
@@ -6,6 +8,15 @@ class WebFront {
         this.app.set('view engine', 'njk')
         this.app.set('views', settings.web.srcDir);
         this.njk = expressNunjucks(this.app, {});
+
+        this.app.use(session({
+            secret: settings.session.secret,
+            resave: false,
+            saveUninitialized: false,
+            store: new MemoryStore({
+                expires: settings.session.expires
+            })
+        }));
 
         this.setupRoutes();
     }
