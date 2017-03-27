@@ -1,0 +1,19 @@
+{% extends "base.njk" %}
+{% block title %}Severn Bronies Streamer{% endblock %}
+{% block content %}
+    <div class="viewer">
+        <div class="viewer__size"></div>
+        <iframe class="viewer__iframe" id="viewer" src="about:blank"></iframe>
+    </div>
+    <div class="tweetstream" id="tweetstream">
+    </div>
+    <div class="schedule">
+        <div class="schedule__title">Coming up</div>
+        <ul class="schedule__list" id="schedule"></ul>
+    </div>
+{% endblock %}
+{% block postloadjs %}
+    {{ super() }}
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/scripts.js"></script>
+{% endblock %}

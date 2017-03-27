@@ -18,6 +18,8 @@
   "homepage": "https://github.com/severnbronies/Mast#readme",
   "dependencies": {
     "express": "^4.15.2",
+    "express-nunjucks": "^2.2.3",
+    "nunjucks": "^3.0.0",
     "socket.io": "^1.7.3",
     "twitter": "^1.7.0"
   },

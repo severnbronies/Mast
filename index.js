@@ -6,9 +6,8 @@ var io          = require("socket.io")(http);
 var MessageFeed = require('./server/app/messagefeed');
 var Viewer = require('./server/app/viewer');
 var TwitterFrontend = require('./server/frontend/twitter');
+var WebFrontend = require('./server/frontend/web');
 
-app.use(express.static('resource'));
-app.use(express.static('dst'));
 
 var streamNs = io.of('stream');
 
@@ -22,6 +21,12 @@ var viewer = new Viewer(streamNs);
  * Initialize frontends here
  */
 var twitterFront = new TwitterFrontend(settings, messageFeed);
+var webFront = new WebFrontend(settings, app);
+
+/**
+ * Serve static files
+ */
+app.use(express.static('dst'));
 
 http.listen(settings.port, function() {
     twitterFront.initialize();
