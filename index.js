@@ -30,8 +30,4 @@ app.use(express.static('dst'));
 
 http.listen(settings.port, function() {
     twitterFront.initialize();
-    setTimeout(function() {
-        viewer.setUrl('https://www.youtube.com/embed/8VIllAilTnE');
-    }, 5000);
-
 });
