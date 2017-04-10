@@ -1,0 +1,54 @@
+// Media query management
+@mixin mq($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media #{map-get($breakpoints, $breakpoint)} {
+			@content;
+		}
+	}
+	@else {
+		@media #{$breakpoint} {
+			@content;
+		}
+	}
+}
+
+// Accessible content hiding
+@mixin hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+}
+
+// Non-overflow-based clearfix (for elements that need 
+// things to be able to go outside them)
+@mixin clearfix {
+	*zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: " ";
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+// Input placeholders
+@mixin placeholder {
+	&::-webkit-input-placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+}
+
+// Hide text for old school text replacement
+@mixin hide-text {
+	text-indent: 110%;
+	white-space: nowrap;
+	overflow: hidden;
+}

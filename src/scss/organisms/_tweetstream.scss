@@ -1,0 +1,31 @@
+.tweetstream {
+	padding: 15px 20px;
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	overflow: auto;
+	transition-property: width, transform;
+	transition-duration: .5s; 
+	transition-timing-function: $easing;
+	will-change: width, transform;
+	&__tweet {
+		flex: 0 0 360px;
+		width: 360px;
+		padding-right: 20px;
+		&:nth-last-child(n+2) {
+			margin-right: 20px;
+			border-right: 1px solid rgba(#fff, .15);
+		}
+	}
+	&--new {
+		width: calc(100% + 380px);
+		transform: translateX(-380px);
+		transition-duration: 0s;
+	}
+}
