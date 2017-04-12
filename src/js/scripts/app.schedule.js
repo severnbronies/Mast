@@ -1,6 +1,6 @@
 class Schedule {
     constructor(container, maxlength) {
-        this.events = new ListView('tmpl/schevent.html');
+        this.events = new ListView('schevent.njk');
         this.events.setContainer(container);
         this.maxlength = maxlength;
     }

@@ -3,11 +3,7 @@ class ListView {
         this.template = null;
         this.storage = [];
         this.$container = null;
-
-        $.get(template, (template) => {
-             this.template = template;
-             if(this._hasView()) { this._renderAll(); }
-        });
+        this.template = template;
     }
 
     setContainer(container) {
@@ -82,7 +78,7 @@ class ListView {
     }
 
     _renderItem(item) {
-        return Mustache.render(this.template, item);
+        return nunjucks.render(this.template, item);
     }
 
     _childAtIndex(index) {

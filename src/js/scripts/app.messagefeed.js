@@ -1,6 +1,6 @@
 class MessageFeed {
     constructor(container, maxlength) {
-        this.messages = new ListView('tmpl/tweet.html');
+        this.messages = new ListView('tweet.njk');
         this.messages.setContainer(container);
         this.maxlength = maxlength;
     }
