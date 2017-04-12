@@ -128,6 +128,6 @@ gulp.task('fonts', () => {
  */
 
 gulp.task('html', () => {
-	gulp.src('./src/{,*/}*.html')
+	gulp.src('./tmpl/{,*/}*.html')
 	.pipe(gulp.dest('./dst'));
 });
