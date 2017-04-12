@@ -6,7 +6,7 @@ class WebFront {
     constructor(settings, expressApp) {
         this.app = expressApp;
         this.app.set('view engine', 'njk');
-        this.app.set('views', settings.web.srcDir);
+        this.app.set('views', settings.web.templateDir);
         this.njk = expressNunjucks(this.app, {});
 
         this.app.use(session({
@@ -27,7 +27,7 @@ class WebFront {
     }
 
     _stream(req, res) {
-        res.render('stream.njk');
+        res.render('pages/stream.njk');
     }
 }
 

@@ -19,6 +19,7 @@ module.exports = {
     },
     web: {
         staticDir: path.join(__dirname, 'dst'),
-        srcDir: path.join(__dirname, 'src')
+        srcDir: path.join(__dirname, 'src'),
+        templateDir: path.join(__dirname, 'tmpl')
     }
-}
+};
