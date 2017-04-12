@@ -1,0 +1,7 @@
+{% macro schevent(event, timestamp) %}
+<!-- TODO: Generate unixTimestamp from timestamp or vice-versa -->
+<li class="schedule__item" data-timestamp="{{ unixTimestamp }}">
+	<time class="schedule__time" datetime="{{ timestamp }}">{{ timestamp }}</time>
+	<span class="schedule__label">{{ event | escape }}</span>
+</li>
+{% endmacro %}
