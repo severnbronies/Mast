@@ -128,6 +128,10 @@ gulp.task('fonts', () => {
  */
 
 gulp.task('html', () => {
-	gulp.src('./tmpl/{,*/}*.html')
-	.pipe(gulp.dest('./dst'));
+	const nunjucks = require('gulp-nunjucks');
+	const concat = require('gulp-concat');
+	gulp.src('./tmpl/{,*/}*.njk')
+	.pipe(nunjucks.precompile())
+	.pipe(concat('templates.js'))
+	.pipe(gulp.dest('./dst/js'));
 });
